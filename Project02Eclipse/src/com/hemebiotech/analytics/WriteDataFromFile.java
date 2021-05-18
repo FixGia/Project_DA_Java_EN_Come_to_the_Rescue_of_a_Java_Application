@@ -13,52 +13,36 @@ import java.util.Map.Entry;
  * @param mapName a Map<String Long> with symptoms and symptoms's occurrences
  * 
  * 
+ * 
+ * 
  * */
-	
-
 public class WriteDataFromFile implements ISymptomWriter {
 	
-private Map<String, Long> mapName ;
 	
-
-
-	public WriteDataFromFile(Map<String, Long> mapName) {
-
-	this.mapName= mapName ;
-
+	
+ public WriteDataFromFile() {
+	 
+		
 	}
-	
-	
+ 
+ 
+ 
 
 	@Override
-	public FileWriter Writer() {
+	public FileWriter Writer(Map<String,Long> mapName) throws IOException {
 		
-	  FileWriter result = null;
-	try {
-		result = new FileWriter("result.out"); //* this statement create a file result.out
-	} catch (IOException e) {
+	
 		
-		e.printStackTrace();
-	}
+	  FileWriter result = new FileWriter("result.out");
 		
 		for (Entry<String, Long> entry : mapName.entrySet()) {
-			System.out.println(entry.getKey() + ": " + entry.getValue()); //*this statement prints out my keys and values in the console*/
+			System.out.println(entry.getKey() + ": " + entry.getValue()); //*this statement prints out my keys and values */
 			
-		     try {
-				result.write(entry.getKey() + " : " + entry.getValue()+ "\n"); //* this statement prints out my keys and values in the file */
-			} catch (IOException e) {
-				
-				e.printStackTrace();
-			} 
+		     result.write(entry.getKey() + " : " + entry.getValue()+ "\n"); //* this statement prints out my keys and values in the file */
 		             
 		 }
 
-		try {
-			result.close();
-		} catch (IOException e) {
-			
-			e.printStackTrace();
-		}
+		result.close();
 		
 		return result;
 		
@@ -66,10 +50,11 @@ private Map<String, Long> mapName ;
 	
 		 
 	}
+	
+	}
 
 
 
-}
 
 
 

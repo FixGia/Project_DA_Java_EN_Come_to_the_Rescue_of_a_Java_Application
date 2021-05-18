@@ -2,6 +2,7 @@ package com.hemebiotech.analytics;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Map;
 
 
 
@@ -19,7 +20,7 @@ public interface ISymptomWriter {
 	 * 
 	 * @return a list of symptoms in the console AND a file result.out.
 	 */
-FileWriter Writer () throws IOException;
+FileWriter Writer (Map<String,Long> mapName) throws IOException;
 
 	
 
